@@ -1,259 +1,184 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Studio Motion</title>
-    <meta name="description" content="How faceless channels are making $10K+ a month.">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Studio Motion">
-    <meta property="og:title" content="Studio Motion">
-    <meta property="og:description" content="How faceless channels are making $10K+ a month.">
-    <meta property="og:url" content="https://www.studiomotion.org/">
-    <meta property="og:image" content="https://www.studiomotion.org/assets/motion-logo.png">
-    <meta property="og:image:secure_url" content="https://www.studiomotion.org/assets/motion-logo.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1240">
-    <meta property="og:image:height" content="1240">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Studio Motion">
-    <meta name="twitter:description" content="How faceless channels are making $10K+ a month.">
-    <meta name="twitter:image" content="https://www.studiomotion.org/assets/motion-logo.png">
-    <link rel="icon" type="image/png" href="./assets/motion-logo.png">
-    <link rel="apple-touch-icon" href="./assets/motion-logo.png">
-    <link rel="stylesheet" href="./styles.css">
-  </head>
-  <body>
-    <main class="site">
-      <header class="nav">
-        <div class="nav-inner">
-          <a class="brand" href="./"><img src="./assets/motion-logo.png" alt="" aria-hidden="true">Motion</a>
-          <nav class="nav-links" aria-label="Main navigation">
-            <a href="#system">The System</a>
-            <a href="#results">Results</a>
-            <a href="#coaching">Coaching</a>
-            <a href="#fit">Fit</a>
-            <a href="./pricing/">Pricing</a>
-            <a class="pill" href="https://whop.com/joined/m0tion/products/doubletake-cd/">Get Access</a>
-          </nav>
-        </div>
-      </header>
+(function () {
+  var activeScript = document.currentScript;
+  var revealTargets = [
+    ".video-wrap",
+    ".section-head",
+    ".section-copy",
+    ".card",
+    ".proof",
+    ".coach-card",
+    ".coach-profile",
+    ".story-panel",
+    ".channel-card",
+    ".board-photo",
+    ".quote",
+    ".fit-card",
+    ".cta .container",
+    ".plan",
+    ".pricing-note"
+  ];
 
-      <section class="hero" id="top">
-        <div class="container">
-          <p class="eyebrow">FACELESS YOUTUBE PROGRAM</p>
-          <h1 class="motion-title text-purple-grad">Motion</h1>
-          <p class="hero-copy">How faceless channels are making $10K+ a month. The full breakdown below.</p>
-          <div class="hero-actions">
-            <a class="primary" href="https://whop.com/joined/m0tion/products/doubletake-cd/">Get instant access →</a>
-            <button class="secondary-action" type="button" data-open-free-course>Learn For Free</button>
-          </div>
-        </div>
-      </section>
+  var nodes = Array.prototype.slice.call(document.querySelectorAll(revealTargets.join(",")));
+  nodes.forEach(function (node, index) {
+    node.classList.add("reveal");
+    node.style.transitionDelay = Math.min(index % 6, 5) * 70 + "ms";
+  });
 
-      <section class="video-section">
-        <div class="container">
-          <div class="video-wrap">
-            <video class="vsl" src="./assets/vsl.mp4" controls playsinline preload="metadata"></video>
-          </div>
-        </div>
-      </section>
+  Array.prototype.slice.call(document.querySelectorAll(".fit-card")).forEach(function (card) {
+    Array.prototype.slice.call(card.querySelectorAll("li")).forEach(function (item, index) {
+      item.style.transitionDelay = 120 + index * 85 + "ms";
+    });
+  });
 
-      <section id="system">
-        <div class="container">
-          <div class="section-head">
-            <h2>The System</h2>
-            <span>4 PILLARS · WHAT YOU GET</span>
-          </div>
-          <p class="section-copy">Four parts. Pre-built. Stop second-guessing what works.</p>
-          <div class="grid-two">
-            <article class="card">
-              <p class="num">01</p>
-              <h3>Niches</h3>
-              <p>Pre-validated niche library, ranked by profitability, competition, and risk. You don't have to pick — we hand you what works.</p>
-            </article>
-            <article class="card">
-              <p class="num">02</p>
-              <h3>Editing</h3>
-              <p>Frameworks and templates. Retention-first cuts. No Premiere Pro mastery required.</p>
-            </article>
-            <article class="card">
-              <p class="num">03</p>
-              <h3>Scaling</h3>
-              <p>Run multiple channels safely. Avoid demonetization and keep AdSense clean as you grow.</p>
-            </article>
-            <article class="card">
-              <p class="num">04</p>
-              <h3>Support</h3>
-              <p>1:1 access for 5 months. Discord, channel reviews, group calls, accountability.</p>
-            </article>
-          </div>
-        </div>
-      </section>
+  if ("IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.01, rootMargin: "0px" });
 
-      <section id="results">
-        <div class="container">
-          <div class="section-head">
-            <h2>Results</h2>
-            <span>4 CLIENTS · PROOF</span>
-          </div>
-          <div class="proof-grid">
-            <figure class="proof"><img src="./assets/client-1.webp" alt="Client 1 — 233.7M views, $20,994 in last 365 days"></figure>
-            <figure class="proof"><img src="./assets/client-2.webp" alt="Client 2 — 273.0M views, $34,288 in last 365 days"></figure>
-            <figure class="proof"><img src="./assets/client-3.webp" alt="Client 3 — 333.0M views, $40,262 in last 365 days"></figure>
-            <figure class="proof"><img src="./assets/client-4.webp" alt="Client 4 — 746.2M views, $105,100 in last 90 days"></figure>
-          </div>
-        </div>
-      </section>
+    nodes.forEach(function (node) {
+      observer.observe(node);
+    });
+  } else {
+    nodes.forEach(function (node) {
+      node.classList.add("is-visible");
+    });
+  }
 
-      <section>
-        <div class="container">
-          <div class="section-head">
-            <h2>Why pick Motion?</h2>
-            <span>FROM THE FOUNDER</span>
-          </div>
-          <div class="quote">
-            <div class="quote-inner">
-              <span class="mark">“</span>
-              <article>
-                <p>I've already made every mistake you're about to make.</p>
-                <p>I was uploading every day. Real momentum. Then one bad week made me skip a video. Skipping one became skipping ten. The channels never recovered.</p>
-                <p>So I rebuilt from scratch. New niches, new editing process, new uploading defaults. The whole point of a system is that you don't have to be motivated to follow it. That's what we're handing you.</p>
-                <p>Run the system. The growth follows.</p>
-              </article>
-              <div class="founder">
-                <img src="./assets/ventura.webp" alt="Ventura">
-                <div>
-                  <p>Ventura</p>
-                  <p>FOUNDER · MOTION</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  window.addEventListener("pointermove", function (event) {
+    document.documentElement.style.setProperty("--mx", event.clientX + "px");
+    document.documentElement.style.setProperty("--my", event.clientY + "px");
 
-      <section id="coaching">
-        <div class="container">
-          <div class="section-head">
-            <h2>Coaching</h2>
-            <span>4 COACHES · 1:1 SUPPORT</span>
-          </div>
-          <p class="section-copy">A small coaching team built around reviews, accountability, and direct feedback.</p>
-          <div class="coach-grid">
-            <a class="coach-card theme-ventura" href="./coaches/coach-1/">
-              <span class="coach-photo"><img src="./assets/ventura-coach.jpg" alt="Ventura"></span>
-              <span class="coach-info">
-                <span class="coach-name">Ventura</span>
-                <span class="coach-role">Motion CEO</span>
-              </span>
-            </a>
-            <a class="coach-card theme-gordie" href="./coaches/coach-2/">
-              <span class="coach-photo"><img src="./assets/gordie-coach.png" alt="gordie"></span>
-              <span class="coach-info">
-                <span class="coach-name">Gordie</span>
-                <span class="coach-role">Motion CEO</span>
-              </span>
-            </a>
-            <a class="coach-card theme-isaiha" href="./coaches/coach-3/">
-              <span class="coach-photo"><img class="face-focus-isaiha" src="./assets/isaiha-coach.png" alt="Isaiha"></span>
-              <span class="coach-info">
-                <span class="coach-name">Isaiha</span>
-                <span class="coach-role">Motion Coach</span>
-              </span>
-            </a>
-            <a class="coach-card theme-vey" href="./coaches/coach-4/">
-              <span class="coach-photo"><img class="face-focus-vey" src="./assets/vey-coach.png" alt="Vey"></span>
-              <span class="coach-info">
-                <span class="coach-name">Vey</span>
-                <span class="coach-role">Motion Coach</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
+    var themedTarget = event.target.closest && event.target.closest(".theme-ventura, .theme-gordie, .theme-isaiha, .theme-vey");
+    if (themedTarget) {
+      var coachRgb = getComputedStyle(themedTarget).getPropertyValue("--coach-rgb").trim();
+      if (coachRgb) {
+        document.documentElement.style.setProperty("--cursor-rgb", coachRgb);
+      }
+    } else {
+      document.documentElement.style.setProperty("--cursor-rgb", "168, 85, 247");
+    }
+  }, { passive: true });
 
-      <section id="fit">
-        <div class="container">
-          <div class="section-head">
-            <h2>Fit check</h2>
-            <span>THIS IS NOT FOR EVERYONE</span>
-          </div>
-          <div class="grid-two">
-            <article class="fit-card">
-              <h3>This is for you if</h3>
-              <ul>
-                <li><span>+</span><span>You've tried faceless YouTube and lacked structure, not effort</span></li>
-                <li><span>+</span><span>You want $5–10K/month to supplement income or quit your job</span></li>
-                <li><span>+</span><span>You'll follow a defined system without customizing everything</span></li>
-                <li><span>+</span><span>You have realistic timelines and understand compounding</span></li>
-                <li><span>+</span><span>You're ready to commit for the full program</span></li>
-              </ul>
-            </article>
-            <article class="fit-card muted">
-              <h3>This is not for you if</h3>
-              <ul>
-                <li><span>×</span><span>You want shortcuts, fast money, or DFY results</span></li>
-                <li><span>×</span><span>You want fame, not a business</span></li>
-                <li><span>×</span><span>You blame the algorithm instead of owning execution</span></li>
-                <li><span>×</span><span>You expect instant monetization</span></li>
-                <li><span>×</span><span>You want motivation, not structure</span></li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
+  function setupFreeCourseModal() {
+    var modal = document.querySelector("[data-free-course-modal]");
+    var form = document.querySelector("[data-free-course-form]");
+    if (!modal || !form) return;
 
-      <section class="cta">
-        <div class="container">
-          <span class="badge">DON'T PROFIT? CANCEL ANYTIME.</span>
-          <h2 class="text-purple-grad">You never failed. You just didn't start.</h2>
-          <p>One-time access. Everything you need. No ongoing fees.</p>
-          <div class="cta-actions">
-            <a class="big-button" href="https://whop.com/joined/m0tion/products/doubletake-cd/">Get access now →</a>
-            <button class="learn-button" type="button" data-open-free-course>Learn For Free</button>
-          </div>
-          <a class="pricing-link" href="./pricing/">See pricing →</a>
-        </div>
-      </section>
+    var status = document.querySelector("[data-free-course-status]");
+    var submitButton = form.querySelector(".submit-free-course");
+    var firstInput = form.querySelector("input[name='email']");
+    var openButtons = Array.prototype.slice.call(document.querySelectorAll("[data-open-free-course]"));
+    var closeButtons = Array.prototype.slice.call(document.querySelectorAll("[data-close-free-course]"));
 
-      <div class="modal-backdrop" data-free-course-modal hidden>
-        <div class="free-modal" role="dialog" aria-modal="true" aria-labelledby="free-course-title">
-          <button class="modal-close" type="button" aria-label="Close free course form" data-close-free-course>×</button>
-          <div class="modal-brand">
-            <img src="./assets/motion-logo.png" alt="Studio Motion">
-            <span>Studio Motion</span>
-          </div>
-          <h2 id="free-course-title">Learn the model for free.</h2>
-          <p class="modal-copy">Get the free course overview, access to free group calls, and an invite to a community with 3,000+ YouTubers.</p>
-          <form class="free-course-form" data-free-course-form>
-            <label>
-              Email
-              <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
-            </label>
-            <label>
-              Phone number <span>optional</span>
-              <input type="tel" name="phone" autocomplete="tel" placeholder="(555) 123-4567">
-            </label>
-            <label class="consent-row">
-              <input type="checkbox" name="consent" required>
-              <span>I agree to receive emails, updates, and business inquiries from Studio Motion. I understand I can unsubscribe at any time.</span>
-            </label>
-            <p class="form-note">We will send the free course details first, then occasional Motion updates and monthly reminders about the program.</p>
-            <button class="submit-free-course" type="submit">Send me the free course</button>
-            <p class="form-status" data-free-course-status aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
+    function setStatus(message, isError) {
+      if (!status) return;
+      status.textContent = message;
+      status.style.color = isError ? "#fca5a5" : "#d8b4fe";
+    }
 
-      <footer class="footer">
-        <div class="footer-inner">
-          <span class="brand">Motion</span>
-          <span>© 2026 Motion. All rights reserved.</span>
-          <span class="footer-links"><a href="#">Terms</a><a href="#">Privacy</a></span>
-        </div>
-      </footer>
-    </main>
-    <script src="./script.js"></script>
-  </body>
-</html>
+    function openModal() {
+      modal.hidden = false;
+      document.body.style.overflow = "hidden";
+      setStatus("", false);
+      if (firstInput) firstInput.focus();
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      document.body.style.overflow = "";
+    }
+
+    openButtons.forEach(function (button) {
+      button.addEventListener("click", openModal);
+    });
+
+    closeButtons.forEach(function (button) {
+      button.addEventListener("click", closeModal);
+    });
+
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) closeModal();
+    });
+
+    window.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !modal.hidden) closeModal();
+    });
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+      var data = new FormData(form);
+      var payload = {
+        email: String(data.get("email") || "").trim(),
+        phone: String(data.get("phone") || "").trim(),
+        consent: data.get("consent") === "on"
+      };
+
+      if (!payload.email || !payload.consent) {
+        setStatus("Please enter your email and accept the email consent checkbox.", true);
+        return;
+      }
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
+      setStatus("Sending your free course invite...", false);
+
+      try {
+        var response = await fetch("/api/free-course", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        var result = await response.json().catch(function () { return {}; });
+        if (!response.ok || !result.ok) {
+          throw new Error(result.error || "The email system is not configured yet.");
+        }
+
+        form.reset();
+        setStatus("You're in. Check your email for the free course and Discord invite.", false);
+      } catch (error) {
+        setStatus(error.message + " You can still join the free community here: https://discord.gg/UVqkJ9SNwy", true);
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Send me the free course";
+        }
+      }
+    });
+  }
+
+  async function loadCachedYouTubeSubscriberCounts() {
+    var cards = Array.prototype.slice.call(document.querySelectorAll("[data-youtube-handle]"));
+    if (!cards.length) return;
+
+    try {
+      var scriptUrl = new URL(activeScript ? activeScript.getAttribute("src") : "script.js", window.location.href);
+      var siteRoot = new URL(".", scriptUrl);
+      var response = await fetch(new URL("data/channel-counts.json", siteRoot).toString(), { cache: "no-store" });
+      if (!response.ok) return;
+
+      var payload = await response.json();
+      cards.forEach(function (card) {
+        var handle = card.getAttribute("data-youtube-handle");
+        var countNode = card.querySelector(".channel-count");
+        var channel = payload.channels && payload.channels[handle];
+        if (!countNode || !channel || !channel.subscriberText) return;
+        countNode.textContent = channel.subscriberText;
+        if (channel.updatedAt) {
+          countNode.setAttribute("title", "Updated " + new Date(channel.updatedAt).toLocaleDateString());
+        }
+      });
+    } catch (error) {
+      return;
+    }
+  }
+
+  setupFreeCourseModal();
+  loadCachedYouTubeSubscriberCounts();
+})();
