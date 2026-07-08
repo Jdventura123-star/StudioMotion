@@ -143,9 +143,20 @@ a {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   font-size: 16px;
   line-height: 1;
   letter-spacing: -.01em;
+}
+
+.brand img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  border-radius: 7px;
+  box-shadow: 0 0 22px rgba(168,85,247,.28);
 }
 
 .nav-links {
