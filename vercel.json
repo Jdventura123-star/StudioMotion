@@ -1,4 +1,26 @@
 {
+  "redirects": [
+    {
+      "source": "/coaches/coach-1/",
+      "destination": "/coaches/ventura/",
+      "permanent": true
+    },
+    {
+      "source": "/coaches/coach-2/",
+      "destination": "/coaches/gordie/",
+      "permanent": true
+    },
+    {
+      "source": "/coaches/coach-3/",
+      "destination": "/coaches/isaiha/",
+      "permanent": true
+    },
+    {
+      "source": "/coaches/coach-4/",
+      "destination": "/coaches/vey/",
+      "permanent": true
+    }
+  ],
   "crons": [
     {
       "path": "/api/monthly-reminder",
